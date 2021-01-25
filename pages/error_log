@@ -9,3 +9,6 @@ Stack trace:
 #0 /home/no08mn9azpn0/public_html/sastreria/pages/medida.php(183): listaMedida()
 #1 {main}
   thrown in /home/no08mn9azpn0/public_html/sastreria/control/method.php on line 31
+[23-Jan-2021 06:04:20 UTC] PHP Notice:  Undefined index: id in /home/no08mn9azpn0/public_html/pages/calendario.php on line 176
+[23-Jan-2021 06:04:20 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/no08mn9azpn0/public_html/control/method.php on line 49
+[23-Jan-2021 06:04:20 UTC] PHP Notice:  Undefined index: id in /home/no08mn9azpn0/public_html/pages/calendario.php on line 208

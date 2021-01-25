@@ -60,12 +60,12 @@ if ( isset($_SESSION["usuario"]) ){
 	      </div>
 
 	      <!-- Sidebar Menu -->
-	      	   <nav class="mt-2">
+	      <nav class="mt-2">
 	        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 	        <?php if ( $c == 4  ) { ?>
 	          <li class="nav-item">
-	            <a href="calendario.php" class="nav-link">
-	              <i class="nav-icon fas fa-users"></i>
+	            <a href="control.php" class="nav-link">
+	              <i class="nav-icon fas fa-calendar-alt"></i>
 	              <p>
 	                Control
 	                <span class="right badge badge-success">NUEVO</span>
@@ -124,7 +124,7 @@ if ( isset($_SESSION["usuario"]) ){
 	            <a href="../control/logout.php" class="nav-link">
 	              <i class="nav-icon fas fa-sign-out-alt"></i>
 	              <p>
-	                Cerrar Sesión
+	                Cerrar Sesi贸n
 	                <span class="right badge badge-danger">SALIR</span>
 	              </p>
 	            </a>
