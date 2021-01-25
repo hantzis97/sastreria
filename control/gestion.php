@@ -347,8 +347,7 @@ switch($a){
 		$inicio = mysqli_escape_string($con->obtenerConexion(),$_POST["inicio"]);
 		$fin = mysqli_escape_string($con->obtenerConexion(),$_POST["fin"]);
 		$prenda = mysqli_escape_string($con->obtenerConexion(),$_POST["prenda"]);
-		$fondo = mysqli_escape_string($con->obtenerConexion(),$_POST["fondo"]);
-		$sql = "INSERT INTO control VALUES( '', '$operario' , '$inicio','$fin','$prenda','#ffffff', '$fondo', 1)";
+		$sql = "INSERT INTO control VALUES( '', '$operario' , '$inicio','$fin','$prenda','#ffffff', '#3788d8', 1)";
 		$stm = $con->query($sql);
 		echo json_encode($sql);
 		break;
@@ -356,7 +355,12 @@ switch($a){
 		$inicio = mysqli_escape_string($con->obtenerConexion(),$_POST["inicio"]);
 		$fin = mysqli_escape_string($con->obtenerConexion(),$_POST["fin"]);
 		$id = mysqli_escape_string($con->obtenerConexion(),$_POST["id"]);
-		$sql  = "UPDATE control SET inicio = '$inicio' , fin = '$fin' WHERE idcontrol = $id ";
+		$e = mysqli_escape_string($con->obtenerConexion(),$_POST["estado"]);
+		if ($e == 1){
+			$sql  = "UPDATE control SET inicio = '$inicio' , fin = '$fin' , estado = $e , fondo = '#3788d8'  WHERE idcontrol = $id ";
+		}else{
+			$sql  = "UPDATE control SET inicio = '$inicio' , fin = '$fin' , estado = $e , fondo = '#d73737'  WHERE idcontrol = $id ";
+		}
 		$stm = $con->query($sql);
 		echo json_encode($stm);
 		break; 
