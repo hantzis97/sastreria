@@ -172,15 +172,49 @@ if ( isset($_SESSION["usuario"]) ){
 	       		<div class="col-lg-12">
 		            <div class="card">
 		               <div class="card-header">
-		               	<h3>
+		               		<h3>
 	                    	<i class="fas fa-globe"></i> Operario: <?php echo obtenerNombreOperaro($_GET["id"]) ?>
-	                    	<small class="float-right">
-	                    		<a href="#"  class="float-sm-right btn btn-primary"><i class="fas fa-folder"></i> Resumen</a>
-
-	                    	</small>
-	                  	</h3>		           	          
-		              </div>
-		              <div class="card-body">
+	                    	<small class="float-right row">          
+				            </small>
+				            </h3>
+				            <div class="row">
+				                    <div class="col-sm-4">
+				                      <div class="form-group">
+				                        <select class="form-control" id="meses">
+				                          <option value="0">Mes</option>
+				                          <option value="1">Enero</option>
+				                          <option value="2">Febrero</option>
+				                          <option value="3">Marzo</option>
+				                          <option value="4">Abril</option>
+				                          <option value="5">Mayo</option>
+				                          <option value="6">Junio</option>
+				                          <option value="7">Julio</option>
+				                          <option value="8">Agosto</option>
+				                          <option value="9">Septiembre</option>
+				                          <option value="10">Octubre</option>
+				                          <option value="11">Noviembre</option>
+				                          <option value="12">Diciembre</option>
+				                        </select>
+				                      </div>
+				                    </div>
+				                    <div class="col-sm-4">
+				                      <div class="form-group">
+				                        <select class="form-control" id="anio">
+				                          <option value="0">Año</option>
+				                          <option value="2021">2021</option>
+				                          <option value="2022">2022</option>
+				                          <option value="2023">2023</option>
+				                          <option value="2024">2024</option>
+				                          <option value="2025">2025</option>
+				                        </select>
+				                      </div>
+				                    </div>
+				                    <div class="col-sm-4">
+				                    	<button type="button" id="BotonResumen" class="btn btn-primary">Resumen</button>
+				                    </div>
+				                </div>
+			            </div>	                                       		           	          
+		            <div class="card-body">
 		              		<div id="calendar"></div>
 		              </div>
 		            </div>
@@ -275,6 +309,44 @@ if ( isset($_SESSION["usuario"]) ){
 		    </div>
 		  </div>
 
+		  <!-- MODAL DEL RESUMEN -->
+
+		<div class="modal fade" id="FormularioResumen" tabindex="-1" role="dialog">
+		    <div class="modal-dialog modal-lg" role="document">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		        	<h2>Resumen</h2>
+		          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		            <span aria-hidden="true">&times;</span>
+		          </button>
+		        </div>
+		        <div class="modal-body">
+					<table id="tbresumen" class="table table-bordered table-hover">
+	                  <thead>
+		                  <tr>
+		                    <th>#ID</th>
+		                    <th class="text-center">Fecha Inicio</th>
+		                    <th class="text-center">Fecha Final</th>
+		                    <th class="text-center">Prenda</th>
+		                  </tr>
+	                  </thead>
+	                  <tbody id="datos">
+	                  	 
+	                  </tbody>
+	                  <tfoot>
+		                  <tr>
+		                    <th colspan="3">#Total de Días trabajados</th>
+		                    <th class="text-center"><span id="totald"></span></th>
+		                  </tr>
+	                  </tfoot>
+                	</table>
+		        </div>
+		        <div class="modal-footer">
+
+		        </div>
+		      </div>
+		    </div>
+		</div>
 
 
 
@@ -321,6 +393,7 @@ if ( isset($_SESSION["usuario"]) ){
 
 	<script>
 		$(document).ready(function(){
+
 
 			var nomboperario = $("#nombre").val();
 			$('.clockpicker').clockpicker();
@@ -428,6 +501,15 @@ if ( isset($_SESSION["usuario"]) ){
         	$("#FormularioEventos").modal('hide');
       	});	
 
+      	$('#BotonResumen').click(function() {
+        	let registro = recuperarMesAnio();
+        	if ( $("#meses").val() != 0 && $("#anio").val() != 0 ){
+        		obtenerResumen(registro);
+        	}else{
+        		alert("Ingrese Mes y Año");
+        	}
+      	});	
+
 
       	// FUNCIONES DE LOS BOTONES
 
@@ -473,6 +555,37 @@ if ( isset($_SESSION["usuario"]) ){
 	        });
       }
 
+      function obtenerResumen(registro) {
+	        $.ajax({
+	          type: 'POST',
+	          url: '../control/gestion.php?action=25',
+	          data: registro,
+	          dataType : 'json',
+	          success: function(data) {
+	          	if ( data != null ){
+	          		$("#datos").html("");
+		          	for ( var i = 0 ; i < data.length ; i++){
+		          		$("#datos").append("<tr>");
+		          		$("#datos").append("<td>"+data[i][0]+"</td>");
+		          		$("#datos").append("<td>"+data[i][2]+"</td>");
+		          		$("#datos").append("<td>"+data[i][3]+"</td>");
+		          		$("#datos").append("<td>"+data[i][4]+"</td>");
+		          		$("#datos").append("</tr>");
+		          	}
+		          	$("#totald").html(i + " Días");
+		          	$("#meses").val(0);
+		          	$("#anio").val(0);	
+		            $("#FormularioResumen").modal();
+	          	}else{
+	          		alert("Datos no encontrados");
+	          	}      
+	          },
+	          error: function(error) {
+	            alert("Hay un problema:" + error);
+	          }
+	        });
+      }
+
       	function limpiarFormulario() {
         	$('#FechaInicio').val('');
         	$('#FechaFin').val('');
@@ -495,6 +608,17 @@ if ( isset($_SESSION["usuario"]) ){
         };
         return registro;
       }
+
+      function recuperarMesAnio() {
+        let registro = {
+          	mes : $("#meses").val(),
+      		anio : $("#anio").val(),
+      		nombre : $("#nombre").val()
+        };
+        return registro;
+      }
+
+
 
     
 	})
