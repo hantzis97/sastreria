@@ -370,7 +370,66 @@ switch($a){
 		$stm = $con->query($sql);
 		echo json_encode($stm);
 		break;
-		
+	case 25:
+		$mes = mysqli_escape_string($con->obtenerConexion(),$_POST["mes"]);
+		$anio = mysqli_escape_string($con->obtenerConexion(),$_POST["anio"]);
+		$n = mysqli_escape_string($con->obtenerConexion(),obtenerNombreOperaro($_POST["nombre"]));
+		switch ($mes){
+			case 1:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 2:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-28";
+			break;
+			case 3:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 4:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-30";
+			break;
+			case 5:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 6:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-30";
+			break;
+			case 7:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 8:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 9:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-30";
+			break;
+			case 10:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+			case 11:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-30";
+			break;
+			case 12:
+				$fechai = $anio."-".$mes."-01";
+				$fechaf = $anio."-".$mes."-31";
+			break;
+		}
+		$sql = "SELECT * FROM control WHERE estado = 2 AND idusuario = '$n' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
+		$stm = $con->query($sql);
+		while($row = mysqli_fetch_array($stm)){
+		   $datos[] = $row;
+		}
+		echo json_encode($datos);
 }
 
 /*
