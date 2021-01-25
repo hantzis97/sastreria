@@ -1,0 +1,65 @@
+[18-Jan-2021 02:37:38 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[18-Jan-2021 02:37:40 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[18-Jan-2021 02:37:41 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[18-Jan-2021 02:37:41 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[18-Jan-2021 02:37:41 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[18-Jan-2021 02:37:42 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 8
+[18-Jan-2021 02:37:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php:9
+Stack trace:
+#0 /home/no08mn9azpn0/public_html/sastreria/control/autenticacion.php(5): Conexion->__construct()
+#1 {main}
+  thrown in /home/no08mn9azpn0/public_html/sastreria/modelo/conexion.php on line 9
+[22-Jan-2021 21:52:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 21:52:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 21:54:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 21:56:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 22:06:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 22:11:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects exactly 1 parameter, 2 given in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 22:20:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
+[22-Jan-2021 22:21:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/no08mn9azpn0/public_html/control/gestion.php:337
+Stack trace:
+#0 {main}
+  thrown in /home/no08mn9azpn0/public_html/control/gestion.php on line 337
