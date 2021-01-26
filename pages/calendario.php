@@ -625,7 +625,7 @@ if ( isset($_SESSION["usuario"]) ){
       	$("#tbresumen").DataTable({
       		'paging'      : true,
 		      'lengthChange': true,
-		      'searching'   : true,
+		      'searching'   : false,
 		      'ordering'    : true,
 		      'info'        : true,
 		      'autoWidth'   : true,
