@@ -182,18 +182,18 @@ if ( isset($_SESSION["usuario"]) ){
 				                      <div class="form-group">
 				                        <select class="form-control" id="meses">
 				                          <option value="0">Mes</option>
-				                          <option value="1">Enero</option>
-				                          <option value="2">Febrero</option>
-				                          <option value="3">Marzo</option>
-				                          <option value="4">Abril</option>
-				                          <option value="5">Mayo</option>
-				                          <option value="6">Junio</option>
-				                          <option value="7">Julio</option>
-				                          <option value="8">Agosto</option>
-				                          <option value="9">Septiembre</option>
-				                          <option value="10">Octubre</option>
-				                          <option value="11">Noviembre</option>
-				                          <option value="12">Diciembre</option>
+				                          <option value="Enero">Enero</option>
+				                          <option value="Febrero">Febrero</option>
+				                          <option value="Marzo">Marzo</option>
+				                          <option value="Abril">Abril</option>
+				                          <option value="Mayo">Mayo</option>
+				                          <option value="Junio">Junio</option>
+				                          <option value="Julio">Julio</option>
+				                          <option value="Agosto">Agosto</option>
+				                          <option value="Septiembre">Septiembre</option>
+				                          <option value="Octubre">Octubre</option>
+				                          <option value="Noviembre">Noviembre</option>
+				                          <option value="Diciembre">Diciembre</option>
 				                        </select>
 				                      </div>
 				                    </div>
@@ -315,7 +315,7 @@ if ( isset($_SESSION["usuario"]) ){
 		    <div class="modal-dialog modal-lg" role="document">
 		      <div class="modal-content">
 		        <div class="modal-header">
-		        	<h2>Resumen</h2>
+		        	<h2 align="center" id="tituloresumen">Resumen</h2>
 		          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		            <span aria-hidden="true">&times;</span>
 		          </button>
@@ -324,7 +324,7 @@ if ( isset($_SESSION["usuario"]) ){
 					<table id="tbresumen" class="table table-bordered table-hover">
 	                  <thead>
 		                  <tr>
-		                    <th>#ID</th>
+		                    <th class="text-center">#ID</th>
 		                    <th class="text-center">Fecha Inicio</th>
 		                    <th class="text-center">Fecha Final</th>
 		                    <th class="text-center">Prenda</th>
@@ -435,17 +435,17 @@ if ( isset($_SESSION["usuario"]) ){
 		          $('#BotonModificar').show();
 		          $('#BotonEliminar').show();
 		          $('#BotonAgregar').hide();
-		          $("#titulodia").html("Modificando día de trabajo");
+		          $("#titulodia").html("Modificar día de trabajo");
 		          $('#est').show();
 		          $('#id').val(info.event.id);
 		          $("#operario").val(info.event.title);
 		          $("#prenda").val(info.event.extendedProps.prenda);
+		          $("#estado").val(info.event.extendedProps.estado);
 		          $('#FechaInicio').val(moment(info.event.start).format("YYYY-MM-DD"));
 		          $('#FechaFin').val(moment(info.event.end).format("YYYY-MM-DD"));
 		          $('#HoraInicio').val(moment(info.event.start).format("HH:mm"));
 		          $('#HoraFin').val(moment(info.event.end).format("HH:mm"));
 		          $("#FormularioEventos").modal();
-
 		        },
 		        eventResize: function(info) {
 		        	alert("hola");
@@ -563,13 +563,14 @@ if ( isset($_SESSION["usuario"]) ){
 	          dataType : 'json',
 	          success: function(data) {
 	          	if ( data != null ){
+	          		$("#tituloresumen").html("Resumen de "+registro.mes+" del "+registro.anio);
 	          		$("#datos").html("");
 		          	for ( var i = 0 ; i < data.length ; i++){
 		          		$("#datos").append("<tr>");
-		          		$("#datos").append("<td>"+data[i][0]+"</td>");
-		          		$("#datos").append("<td>"+data[i][2]+"</td>");
-		          		$("#datos").append("<td>"+data[i][3]+"</td>");
-		          		$("#datos").append("<td>"+data[i][4]+"</td>");
+		          		$("#datos").append("<td class='text-center'>"+data[i][0]+"</td>");
+		          		$("#datos").append("<td class='text-center'>"+data[i][2]+"</td>");
+		          		$("#datos").append("<td class='text-center'>"+data[i][3]+"</td>");
+		          		$("#datos").append("<td class='text-center'>"+data[i][4]+"</td>");
 		          		$("#datos").append("</tr>");
 		          	}
 		          	$("#totald").html(i + " Días");

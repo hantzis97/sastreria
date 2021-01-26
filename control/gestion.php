@@ -334,7 +334,7 @@ switch($a){
 		break;
 	case 21:
 		$operario = obtenerNombreOperaro($_GET["op"]);
-		$sql = "SELECT idcontrol as id , idusuario as title , inicio as start, fin as end , prenda as prenda ,color as textColor , fondo as backgroundColor FROM control WHERE idusuario = '$operario' ";
+		$sql = "SELECT idcontrol as id , idusuario as title , inicio as start, fin as end , prenda as prenda ,color as textColor , fondo as backgroundColor , estado as estado FROM control WHERE idusuario = '$operario' ";
 		$stm = $con->query($sql);
 		$datos = array();
 		while($row = mysqli_fetch_array($stm)){
@@ -375,53 +375,53 @@ switch($a){
 		$anio = mysqli_escape_string($con->obtenerConexion(),$_POST["anio"]);
 		$n = mysqli_escape_string($con->obtenerConexion(),obtenerNombreOperaro($_POST["nombre"]));
 		switch ($mes){
-			case 1:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Enero":
+				$fechai = $anio."-01-01";
+				$fechaf = $anio."-01-31";
 			break;
-			case 2:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-28";
+			case "Febrero":
+				$fechai = $anio."-o2-01";
+				$fechaf = $anio."-o2-28";
 			break;
-			case 3:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Marzo":
+				$fechai = $anio."-o3-01";
+				$fechaf = $anio."-03-31";
 			break;
-			case 4:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-30";
+			case "Abril":
+				$fechai = $anio."-04-01";
+				$fechaf = $anio."-04-30";
 			break;
-			case 5:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Mayo":
+				$fechai = $anio."-05-01";
+				$fechaf = $anio."-05-31";
 			break;
-			case 6:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-30";
+			case "Junio":
+				$fechai = $anio."-06-01";
+				$fechaf = $anio."-06-30";
 			break;
-			case 7:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Julio":
+				$fechai = $anio."-07-01";
+				$fechaf = $anio."-07-31";
 			break;
-			case 8:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Agosto":
+				$fechai = $anio."-08-01";
+				$fechaf = $anio."-08-31";
 			break;
-			case 9:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-30";
+			case "Septiembre":
+				$fechai = $anio."-09-01";
+				$fechaf = $anio."-09-30";
 			break;
-			case 10:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Octubre":
+				$fechai = $anio."-10-01";
+				$fechaf = $anio."-10-31";
 			break;
-			case 11:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-30";
+			case "Noviembre":
+				$fechai = $anio."-11-01";
+				$fechaf = $anio."-11-30";
 			break;
-			case 12:
-				$fechai = $anio."-".$mes."-01";
-				$fechaf = $anio."-".$mes."-31";
+			case "Diciembre":
+				$fechai = $anio."-12-01";
+				$fechaf = $anio."-12-31";
 			break;
 		}
 		$sql = "SELECT * FROM control WHERE estado = 2 AND idusuario = '$n' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
@@ -430,6 +430,7 @@ switch($a){
 		   $datos[] = $row;
 		}
 		echo json_encode($datos);
+		break;
 }
 
 /*
