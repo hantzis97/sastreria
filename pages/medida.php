@@ -124,7 +124,7 @@ if ( isset($_SESSION["usuario"]) ){
 	            <a href="../control/logout.php" class="nav-link">
 	              <i class="nav-icon fas fa-sign-out-alt"></i>
 	              <p>
-	                Cerrar Sesi贸n
+	                Cerrar Sesion
 	                <span class="right badge badge-danger">SALIR</span>
 	              </p>
 	            </a>

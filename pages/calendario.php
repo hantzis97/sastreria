@@ -393,8 +393,7 @@ if ( isset($_SESSION["usuario"]) ){
 
 	<script>
 		$(document).ready(function(){
-
-
+			IniciarDataTable();
 			var nomboperario = $("#nombre").val();
 			$('.clockpicker').clockpicker();
 		
@@ -562,6 +561,7 @@ if ( isset($_SESSION["usuario"]) ){
 	          data: registro,
 	          dataType : 'json',
 	          success: function(data) {
+	          	console.log(data);
 	          	if ( data != null ){
 	          		$("#tituloresumen").html("Resumen de "+registro.mes+" del "+registro.anio);
 	          		$("#datos").html("");
@@ -619,6 +619,19 @@ if ( isset($_SESSION["usuario"]) ){
         return registro;
       }
 
+      function IniciarDataTable(){
+      	$("#tbresumen").DataTable({
+      		'paging'      : true,
+		      'lengthChange': true,
+		      'searching'   : true,
+		      'ordering'    : true,
+		      'info'        : true,
+		      'autoWidth'   : true,
+		      'language' :{
+		        "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"  
+		      }
+      	});
+      }
 
 
     
