@@ -455,6 +455,7 @@ if ( isset($_SESSION["usuario"]) ){
 		          $('#HoraInicio').val(moment(info.event.start).format("HH:mm"));
 		          $('#HoraFin').val(moment(info.event.end).format("HH:mm"));
 		          $('#ColorFondo').val(info.event.backgroundColor);
+		          $("#estado").val(info.event.extendedProps.estado);
 		          //$('#ColorTexto').val(info.event.textColor);
 		          //$('#Descripcion').val(info.event.extendedProps.descripcion);          
 		          let registro = recuperarDatosFormulario();
@@ -468,6 +469,7 @@ if ( isset($_SESSION["usuario"]) ){
 		          $('#HoraInicio').val(moment(info.event.start).format("HH:mm"));
 		          $('#HoraFin').val(moment(info.event.end).format("HH:mm"));
 		          $('#ColorFondo').val(info.event.backgroundColor);
+		          $("#estado").val(info.event.extendedProps.estado);
 		          //$('#ColorTexto').val(info.event.textColor);
 		          //$('#Descripcion').val(info.event.extendedProps.descripcion);
 		          let registro = recuperarDatosFormulario();
