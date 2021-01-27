@@ -335,8 +335,10 @@ if ( isset($_SESSION["usuario"]) ){
 	                  </tbody>
 	                  <tfoot>
 		                  <tr>
-		                    <th colspan="3">#Total de Días trabajados</th>
-		                    <th class="text-center"><span id="totald"></span></th>
+		                    <th class="text-center">#ID</th>
+		                    <th class="text-center">Fecha Inicio</th>
+		                    <th class="text-center">Fecha Final</th>
+		                    <th class="text-center">Prenda</th>
 		                  </tr>
 	                  </tfoot>
                 	</table>
@@ -347,9 +349,6 @@ if ( isset($_SESSION["usuario"]) ){
 		      </div>
 		    </div>
 		</div>
-
-
-
 
 	    </div>
 
@@ -393,7 +392,8 @@ if ( isset($_SESSION["usuario"]) ){
 
 	<script>
 		$(document).ready(function(){
-			IniciarDataTable();
+
+
 			var nomboperario = $("#nombre").val();
 			$('.clockpicker').clockpicker();
 		
@@ -507,7 +507,7 @@ if ( isset($_SESSION["usuario"]) ){
         	if ( $("#meses").val() != 0 && $("#anio").val() != 0 ){
         		obtenerResumen(registro);
         	}else{
-        		alert("Ingrese Mes y Año");
+        		Swal.fire('Ingrese Mes y Año');
         	}
       	});	
 
@@ -563,24 +563,10 @@ if ( isset($_SESSION["usuario"]) ){
 	          data: registro,
 	          dataType : 'json',
 	          success: function(data) {
-	          	console.log(data);
 	          	if ( data != null ){
-	          		$("#tituloresumen").html("Resumen de "+registro.mes+" del "+registro.anio);
-	          		$("#datos").html("");
-		          	for ( var i = 0 ; i < data.length ; i++){
-		          		$("#datos").append("<tr>");
-		          		$("#datos").append("<td class='text-center'>"+data[i][0]+"</td>");
-		          		$("#datos").append("<td class='text-center'>"+data[i][2]+"</td>");
-		          		$("#datos").append("<td class='text-center'>"+data[i][3]+"</td>");
-		          		$("#datos").append("<td class='text-center'>"+data[i][4]+"</td>");
-		          		$("#datos").append("</tr>");
-		          	}
-		          	$("#totald").html(i + " Días");
-		          	$("#meses").val(0);
-		          	$("#anio").val(0);	
-		            $("#FormularioResumen").modal();
+	   				window.location.href = "resumen.php?op="+registro.nombre+"&m="+registro.mes+"&a="+registro.anio;	
 	          	}else{
-	          		alert("Datos no encontrados");
+	          		Swal.fire('Datos no encontrados');
 	          	}      
 	          },
 	          error: function(error) {
@@ -623,7 +609,7 @@ if ( isset($_SESSION["usuario"]) ){
 
       function IniciarDataTable(){
       	$("#tbresumen").DataTable({
-      		'paging'      : true,
+      		  'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : false,
 		      'ordering'    : true,
