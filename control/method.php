@@ -34,7 +34,7 @@ function obtenerNombreCLiente($id){
 	$stm = $con->query($sql);
 	if ( $row = mysqli_fetch_array($stm) ){
 		?>
-		<p class="text-primary">"<?php echo $row[1]." ".$row[2]?>"</p>
+		<spam><?php echo strtoupper($row[1]." ".$row[2] )?></span>
 		<?php
 	}
 	$con->cerrarConexion();
