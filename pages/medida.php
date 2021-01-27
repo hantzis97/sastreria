@@ -338,7 +338,7 @@ if ( isset($_SESSION["usuario"]) ){
 		      }
 		})
 			$("#agregar-medida").click(function(){
-				var idcl = $("#id");
+				var idcl = $("#id").val();
 				$.ajax({
 					url : '../control/gestion.php?action=2',
 					type : 'POST',
@@ -356,7 +356,7 @@ if ( isset($_SESSION["usuario"]) ){
 				})
 			})		
 			$("#editar-medida").click(function(){
-				var idcl = $("#id");
+				var idcl = $("#id").val();
 				$.ajax({
 					url : '../control/gestion.php?action=4',
 					type : 'POST',
