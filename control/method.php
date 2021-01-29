@@ -338,7 +338,7 @@ function listarResumen($op,$m,$a){
 		break;
 		}
 
-	$sql = "SELECT * FROM control WHERE estado = 2 AND idusuario = '$op' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
+	$sql = "SELECT * FROM control WHERE idusuario = '$op' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
 	$stm = $con->query($sql);
 	$con->cerrarConexion();
 	while ( $row = mysqli_fetch_array($stm) ){
@@ -348,6 +348,7 @@ function listarResumen($op,$m,$a){
 			<td class="text-center"><?php echo $row[2]?></td>
 			<td class="text-center"><?php echo $row[3]?></td>
 			<td class="text-center"><?php echo $row[4]?></td>
+			<td class="text-center"><?php echo $row[7]?></td>
 		</tr>
 		<?php		
 	}

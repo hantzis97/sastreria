@@ -289,16 +289,12 @@ if ( isset($_SESSION["usuario"]) ){
 			            </div>
 		          	</div>
 		           <div class="form-group" id="est">
-		            	<label>Estado</label>
-		            	<select class="form-control" id="estado" name="estado">
-		            		<option value="1">Trabajando</option>
-			              	<option value="2">Finalizar Dia</option>
-			            </select>
+		            	<label>Cantidad</label>
+		            	<input type="number" class="form-control" name="cantidad" id="cantidad">
 		          </div>	
 
 		        </div>
 		        <div class="modal-footer">
-
 		          <button type="button" id="BotonAgregar" class="btn btn-success">Agregar</button>
 		          <button type="button" id="BotonModificar" class="btn btn-success">Modificar</button>
 		          <button type="button" id="BotonEliminar" class="btn btn-danger">Eliminar</button>
@@ -417,8 +413,7 @@ if ( isset($_SESSION["usuario"]) ){
 		          $('#BotonAgregar').show();
 		          $('#BotonModificar').hide();
 		          $('#BotonEliminar').hide();
-		          $('#est').hide();
-		          $("#titulodia").html("Asignar Día de trabajo");
+		          $("#titulodia").html("Asignar Prenda");
 		          if (info.allDay) {
 		            $('#FechaInicio').val(info.dateStr);
 		            $('#FechaFin').val(info.dateStr);
@@ -434,12 +429,11 @@ if ( isset($_SESSION["usuario"]) ){
 		          $('#BotonModificar').show();
 		          $('#BotonEliminar').show();
 		          $('#BotonAgregar').hide();
-		          $("#titulodia").html("Modificar día de trabajo");
-		          $('#est').show();
+		          $("#titulodia").html("Modificar Prenda");
 		          $('#id').val(info.event.id);
 		          $("#operario").val(info.event.title);
 		          $("#prenda").val(info.event.extendedProps.prenda);
-		          $("#estado").val(info.event.extendedProps.estado);
+		          $("#cantidad").val(info.event.extendedProps.estado);
 		          $('#FechaInicio').val(moment(info.event.start).format("YYYY-MM-DD"));
 		          $('#FechaFin').val(moment(info.event.end).format("YYYY-MM-DD"));
 		          $('#HoraInicio').val(moment(info.event.start).format("HH:mm"));
@@ -582,6 +576,7 @@ if ( isset($_SESSION["usuario"]) ){
         	$("#HoraFin").val('');
         	$("#operario").val(0);
         	$("#prenda").val(0);
+        	$("#cantidad").val(0);
 
       }
 
@@ -593,7 +588,7 @@ if ( isset($_SESSION["usuario"]) ){
           fin: $('#FechaFin').val() + ' ' + $('#HoraFin').val(),
           prenda: $("#prenda").val(),
           //fondo: $("#ColorFondo").val(),
-          estado: $("#estado").val()
+          cantidad: $("#cantidad").val()
         };
         return registro;
       }

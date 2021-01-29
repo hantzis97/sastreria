@@ -180,6 +180,7 @@ if ( isset($_SESSION["usuario"]) ){
 										<th class="text-center">Fecha Inicio</th>
 										<th class="text-center">Fecha Final</th>
 										<th class="text-center">Prenda</th>
+										<th class="text-center">Cantidad</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -191,6 +192,7 @@ if ( isset($_SESSION["usuario"]) ){
 										<th class="text-center">Fecha Inicio</th>
 										<th class="text-center">Fecha Final</th>
 										<th class="text-center">Prenda</th>
+										<th class="text-center">Cantidad</th>
 									</tr>
 								</tfoot>
 							</table>

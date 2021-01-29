@@ -334,7 +334,7 @@ switch($a){
 		break;
 	case 21:
 		$operario = obtenerNombreOperaro($_GET["op"]);
-		$sql = "SELECT idcontrol as id , idusuario as title , inicio as start, fin as end , prenda as prenda ,color as textColor , fondo as backgroundColor , estado as estado FROM control WHERE idusuario = '$operario' ";
+		$sql = "SELECT idcontrol as id , prenda as title , inicio as start, fin as end , prenda as prenda ,color as textColor , fondo as backgroundColor , cantidad as estado FROM control WHERE idusuario = '$operario' ";
 		$stm = $con->query($sql);
 		$datos = array();
 		while($row = mysqli_fetch_array($stm)){
@@ -347,7 +347,8 @@ switch($a){
 		$inicio = mysqli_escape_string($con->obtenerConexion(),$_POST["inicio"]);
 		$fin = mysqli_escape_string($con->obtenerConexion(),$_POST["fin"]);
 		$prenda = mysqli_escape_string($con->obtenerConexion(),$_POST["prenda"]);
-		$sql = "INSERT INTO control VALUES( '', '$operario' , '$inicio','$fin','$prenda','#ffffff', '#3788d8', 1)";
+		$c = mysqli_escape_string($con->obtenerConexion(),$_POST["cantidad"]);
+		$sql = "INSERT INTO control VALUES( '', '$operario' , '$inicio','$fin','$prenda','#ffffff', '#3788d8', $c)";
 		$stm = $con->query($sql);
 		echo json_encode($sql);
 		break;
@@ -355,12 +356,8 @@ switch($a){
 		$inicio = mysqli_escape_string($con->obtenerConexion(),$_POST["inicio"]);
 		$fin = mysqli_escape_string($con->obtenerConexion(),$_POST["fin"]);
 		$id = mysqli_escape_string($con->obtenerConexion(),$_POST["id"]);
-		$e = mysqli_escape_string($con->obtenerConexion(),$_POST["estado"]);
-		if ($e == 1){
-			$sql  = "UPDATE control SET inicio = '$inicio' , fin = '$fin' , estado = $e , fondo = '#3788d8'  WHERE idcontrol = $id ";
-		}else{
-			$sql  = "UPDATE control SET inicio = '$inicio' , fin = '$fin' , estado = $e , fondo = '#d73737'  WHERE idcontrol = $id ";
-		}
+		$e = mysqli_escape_string($con->obtenerConexion(),$_POST["cantidad"]);
+		$sql = "UPDATE control SET inicio='$inicio' , fin='$fin' , cantidad=$e  WHERE  idcontrol = $id  ";
 		$stm = $con->query($sql);
 		echo json_encode($stm);
 		break; 
@@ -424,7 +421,7 @@ switch($a){
 				$fechaf = $anio."-12-31";
 			break;
 		}
-		$sql = "SELECT * FROM control WHERE estado = 2 AND idusuario = '$n' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
+		$sql = "SELECT * FROM control WHERE idusuario = '$n' AND inicio >= '$fechai' AND fin <= '$fechaf'  ";
 		$stm = $con->query($sql);
 		while($row = mysqli_fetch_array($stm)){
 		   $datos[] = $row;
