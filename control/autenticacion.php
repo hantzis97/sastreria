@@ -1,21 +1,18 @@
 <?php
 
 if ( !empty($_POST["usuario"]) && !empty($_POST["clave"])){
-	require_once "../modelo/conexion.php";
-	$con = new Conexion();
-	$usuario = mysqli_real_escape_string($con->obtenerConexion(),$_POST["usuario"]);
-	$clave = mysqli_real_escape_string($con->obtenerConexion(),$_POST["clave"]);
-	$sql = "SELECT * FROM usuario WHERE usuario = '$usuario' AND clave = '$clave' AND estado = 1 ";
-	$stm = $con->query($sql);
-	if ( $row = mysqli_fetch_array($stm) ){
+	require_once "../modelo/usuario.php";
+	$u = new Usuario();
+	$r = $u->validar($_POST["usuario"],$_POST["clave"]);
+	if ( !empty($r) ){
 		session_start();
-		$_SESSION["usuario"] = $row[1];
-		$_SESSION["nombre"] = $row[3]." ".$row[4];
-		$_SESSION["cargo"] = $row[5];
+		$_SESSION["usuario"] = $r["idusuario"];
+		$_SESSION["nombre"] = $r["nombre"]." ".$r["apellido"];
+		$_SESSION["cargo"] = $r["idcargo"];
 		echo 4;
-	}else{
+ 	}else{
 		echo 3;
-		}
+	}
 }else{
 	echo 2;
 	}

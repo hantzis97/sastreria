@@ -1,29 +1,16 @@
 <?php
 session_start();
 if ( isset($_SESSION["usuario"]) ){
-	//include_once "pagina.php";
 	$n = $_SESSION["nombre"];
 	$c = $_SESSION["cargo"];
 	$t = "Materia Prima";
 	?>
 	<!DOCTYPE html>
 	<html lang="es">
-	<head>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-	  <title><?php echo $t?></title>
-
-	  <!-- Font Awesome Icons -->
-	  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-	  <!-- Theme style -->
-	  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-	  <!-- Google Font: Source Sans Pro -->
-	  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-	  <link rel="stylesheet" href="../plugins/datatables/datatables.css" >
-	  <link href="../plugins/sweetalert/sweetalert.css" >
-	</head>
+	<?php 
+		include_once "../layouts/head.php";
+		head($t);
+	?>
 	<body class="hold-transition sidebar-mini">
 	<div class="wrapper">
 
