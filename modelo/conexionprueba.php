@@ -6,7 +6,7 @@ class Conexion{
 
 	function __construct(){
 		#probando 123
-		$this->conexion = mysqli_connect("localhost","user","password","bd");
+		$this->conexion = mysqli_connect("localhost","user","password","bd2");
 		$this->conexion->set_charset("utf8");
 	}
 
