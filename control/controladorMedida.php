@@ -25,7 +25,7 @@ class ControladorMedida{
 			    </td>
 			</tr>  
 			<?php
-		}
+		}	
 	}
 }
 

@@ -148,39 +148,7 @@ if ( isset($_SESSION["usuario"]) ){
 	    <!-- /.content -->
 	  </div>
 	  <!-- /.content-wrapper -->
-
-	  <!-- Control Sidebar -->
-	  <aside class="control-sidebar control-sidebar-dark">
-	    <!-- Control sidebar content goes here -->
-	    <div class="p-3">
-	      <h5>Title</h5>
-	      <p>Sidebar content</p>
-	    </div>
-	  </aside>
-	  <!-- /.control-sidebar -->
-
-	  <!-- Main Footer -->
-	  <footer class="main-footer">
-	    <!-- To the right -->
-	    <div class="float-right d-none d-sm-inline">
-	      Anything you want
-	    </div>
-	    <!-- Default to the left -->
-	    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-	  </footer>
-	</div>
-	<!-- ./wrapper -->
-
-	<!-- REQUIRED SCRIPTS -->
-
-	<!-- jQuery -->
-	<script src="../plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="../dist/js/adminlte.min.js"></script>
-	<script src="../plugins/sweetalert/sweetalert.js"></script>
-	<script src="../plugins/datatables/datatables.js"></script>
+	  	<?php $layout->footer()?>
 
 	<script>
 		$(document).ready(function(){
@@ -236,13 +204,15 @@ if ( isset($_SESSION["usuario"]) ){
 	</script>
 	<script>
 		function editar(id){
-			var parametros = {"idcliente": id};	
+			let parametros = {"idcliente": id};	
 			$.ajax({
-				url : '../control/gestion.php?action=3',
+				url : '../control/getPedido.php?action=1',
 				type : 'POST',
 				dataType : 'json',
 				data : parametros,
 				success : function(data){
+					alert(data);
+					console.log(data);
 					$("#ednombre").val(data.nombre);
 					$("#edmedida").val(data.medida);
 					$("#eddetalle").val(data.detalle);
@@ -253,7 +223,7 @@ if ( isset($_SESSION["usuario"]) ){
 	</script>
 	<script>
 		function eliminar(id){
-			var cliente = $("#id").val();
+			let cliente = $("#id").val();
 			Swal.fire({
 			  title: 'Estás seguro?',
 			  text: "No podrás revertir la acción",
@@ -266,7 +236,7 @@ if ( isset($_SESSION["usuario"]) ){
 			  if (result.isConfirmed) {
 				 var parametros = {"idcliente": id};	
 					$.ajax({
-						url : '../control/gestion.php?action=20',
+						url : '../control/getPedido.php?action=2',
 						type : 'POST',
 						data : parametros,
 						success : function(data){

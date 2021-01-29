@@ -29,7 +29,8 @@ switch ($a){
 			echo $medida->edit($n,$m,$d,$id);
 		}else{
 			echo 2;
-		}	
+		}
+		break;
 }
 
 ?>
