@@ -4,27 +4,32 @@
 		function head($t){
 		?>		
 		<head>
-			  <meta charset="utf-8">
-			  <meta name="viewport" content="width=device-width, initial-scale=1">
-			  <meta http-equiv="x-ua-compatible" content="ie=edge">
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-			  <title><?php echo $t?></title>
+			<title><?php echo $t?></title>
 
-			  <!-- Font Awesome Icons -->
-			  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-			  <!-- Theme style -->
-			  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-			  <!-- Google Font: Source Sans Pro -->
-			  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-			  <link rel="stylesheet" href="../plugins/datatables/datatables.css" >
-			  <link href="../plugins/sweetalert/sweetalert.css" >
+			<!-- Font Awesome Icons -->
+			<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+			<!-- Theme style -->
+			<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+			<!-- Google Font: Source Sans Pro -->
+			<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+			<link rel="stylesheet" href="../plugins/datatables/datatables.css" >
+			<link href="../plugins/sweetalert/sweetalert.css" >
+			<link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.css" >
+		  	<link rel="stylesheet" href="../plugins/clockpicker/clockpicker.css" >
+		    <link href="../plugins/fullcalendar/core/main.css" rel="stylesheet">
+	  		<link href="../plugins/fullcalendar/daygrid/main.css" rel="stylesheet">
+	  		<link href="../plugins/fullcalendar/timegrid/main.css" rel="stylesheet">
+	  		<link href="../plugins/fullcalendar/list/main.css" rel="stylesheet">
+	  		<link href="../plugins/fullcalendar/bootstrap/main.css" rel="stylesheet">
 		</head>
 		<?php
 		}
 
 		function sidebar(){
-
-			session_start();
 			$c = $_SESSION["cargo"];
 			?>
 			  <!-- Navbar -->
@@ -249,6 +254,16 @@
 				<script src="../plugins/datatables/datatables.js"></script>
 				<script src="../plugins/sweetalert/sweetalert.js"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+				<script src="../plugins/fullcalendar/fullcalendar.js"></script>
+				<script src="../plugins/fullcalendar/core/locales-all.js"></script>
+				<script src="../plugins/clockpicker/clockpicker.js"></script>
+				<script src='../plugins/moment/moment-with-locales.js'></script>
+				<script src='../plugins/fullcalendar/core/main.js'></script>
+			  	<script src='../plugins/fullcalendar/daygrid/main.js'></script>
+			  	<script src='../plugins/fullcalendar/timegrid/main.js'></script>
+			  	<script src='../plugins/fullcalendar/interaction/main.js'></script>
+			  	<script src='../plugins/fullcalendar/list/main.js'></script>
+			  	<script src='../plugins/fullcalendar/bootstrap/main.js'></script>
 			<?php
 		}
 	}

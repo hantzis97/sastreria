@@ -21,7 +21,7 @@ if ( isset($_SESSION["usuario"]) ){
 	          <div class="col-lg-12">
 	            <div class="card">
 	              <div class="card-header">
-	              	<?php if ( $c != 2 ) {  ?>
+	              	<?php if ( $_SESSION["cargo"] != 2 ) {  ?>
 	                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-producto">
 	                  <i class="fas fa-plus"></i>
 	                     Producto
@@ -258,6 +258,7 @@ if ( isset($_SESSION["usuario"]) ){
 					type : 'POST',
 					data : $("#form-editar-producto").serialize(),
 					success : function(data){
+						console.log(data);
 						if ( data == 1){
 							window.location.href = "producto.php";
 						}else if (data == 2 ){
@@ -272,13 +273,13 @@ if ( isset($_SESSION["usuario"]) ){
 
 			$("#descontar-producto").click(function(){
 				$.ajax({
-					url : '../control/gestion.php?action=9',
+					url : '../control/getProducto.php?action=3',
 					type : 'POST',
 					data : $("#form-descontar-producto").serialize(),
 					success : function(data){
 						if ( data == 1){
 							$.ajax({
-								url : '../control/gestion.php?action=8',
+								url : '../control/getProducto.php?action=4',
 								type : 'POST',
 								data : $("#form-descontar-producto").serialize(),
 								success : function(data2){
@@ -297,8 +298,7 @@ if ( isset($_SESSION["usuario"]) ){
 							Swal.fire('Error al descontar datos');
 						}else if (data == 4){
 							Swal.fire('Insuficiente Stock');
-						}
-						
+						}		
 					}
 				})
 			})
@@ -309,7 +309,7 @@ if ( isset($_SESSION["usuario"]) ){
 		function editar(id){
 			var parametros = {"idproducto": id};	
 			$.ajax({
-				url : '../control/gestion.php?action=7',
+				url : '../control/getProducto.php?action=5',
 				type : 'POST',
 				dataType : 'json',
 				data : parametros,
@@ -330,7 +330,7 @@ if ( isset($_SESSION["usuario"]) ){
 		function descontar(id){
 			var parametros = {"idproducto": id};	
 			$.ajax({
-				url : '../control/gestion.php?action=7',
+				url : '../control/getProducto.php?action=5',
 				type : 'POST',
 				dataType : 'json',
 				data : parametros,

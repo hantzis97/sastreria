@@ -14,12 +14,12 @@ switch ($a){
 			$st = $_POST["stock"];
 			require_once "../modelo/producto.php";
 			$p = new Producto();
-			return $p->add($n,$ta,$ti,$ma,$co,$de,$st);
+			echo $p->add($n,$ta,$ti,$ma,$co,$de,$st);
 		}else{
-			return 2;
+			echo 2;
 		}
 	case 2:
-		if ( !empty($_POST["ednombrep"]) && !empty($_POST["edtalla"] ) && !empty($_POST["edtipo"]) && !empty($_POST["edmarca"]) && !empty($_POST["edcolor"]) && !empty($_POST["eddetalle"]) && !empty($_POST["edstock"]) ){
+		if ( !empty($_POST["ednombrep"]) || !empty($_POST["edtalla"] ) || !empty($_POST["edtipo"]) || !empty($_POST["edmarca"]) || !empty($_POST["edcolor"]) || !empty($_POST["eddetalle"]) || !empty($_POST["edstock"]) ){
 			$n = $_POST["ednombrep"];
 			$ta = $_POST["edtalla"];
 			$ti = $_POST["edtipo"];
@@ -30,9 +30,38 @@ switch ($a){
 			$id = $_POST["edid"];
 			require_once "../modelo/producto.php";
 			$p = new Producto();
-			return $p->edit($n,$ta,$ti,$ma,$co,$de,$st,$id);
+			echo $p->edit($n,$ta,$ti,$ma,$co,$de,$st,$id);
 		}else{
-			return 2;
+			echo 2;
+		}
+		break;
+	case 3:
+		if ( !empty($_POST["cantidad"]) && is_numeric($_POST["cantidad"]) && $_POST["cantidad"] > 0 ){
+			$c = $_POST["cantidad"];
+			$id = $_POST["deid"];
+			require_once "../modelo/producto.php";
+			$p = new Producto();
+			echo $p->val($c,$id);
+		}else{
+			echo 2;
 		}	
-
+		break;
+	case 4:
+		if ( !empty($_POST["cantidad"]) && is_numeric($_POST["cantidad"]) && $_POST["cantidad"] > 0){
+			$c = $_POST["cantidad"];
+			$id = $_POST["deid"];
+			require_once "../modelo/producto.php";
+			$p = new Producto();
+			echo $p->desct($c,$id);
+		}else{
+			echo 2;
+		}	
+		break;
+	case 5:
+		$id = $_POST["idproducto"];	
+		require_once "../modelo/producto.php";
+		$p = new Producto();
+		echo json_encode($p->getDato($id));
+		break;
+}
 ?>
