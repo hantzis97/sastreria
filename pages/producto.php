@@ -6,7 +6,7 @@ if ( isset($_SESSION["usuario"]) ){
 	?>
 	<!DOCTYPE html>
 <html lang="es">
-	<?php $layout->head("Medida")?>
+	<?php $layout->head("Producto")?>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
 	<?php $layout->sidebar()?>
