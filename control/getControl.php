@@ -34,6 +34,14 @@ switch ($a){
 		$id = $_POST["id"];
 		echo json_encode($c->delete($id));
 		break;	
+	case 5:
+		require_once "../modelo/resumen.php";
+		$c = new Resumen();
+		$mes = $_POST["mes"];
+		$anio = $_POST["anio"];
+		$n = $_POST["nombre"];	
+		echo json_encode($c->list($n,$mes,$anio));
+		break;
 
 }
 

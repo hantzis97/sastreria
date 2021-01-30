@@ -162,11 +162,8 @@ if ( isset($_SESSION["usuario"]) ){
 
 	<script>
 		$(document).ready(function(){
-
-
 			var nomboperario = $("#nombre").val();
 			$('.clockpicker').clockpicker();
-		
 			var calendarEl = document.getElementById('calendar');
 	        var calendar = new FullCalendar.Calendar(calendarEl, {
 	        	plugins: ['dayGrid', 'timeGrid', 'interaction'],

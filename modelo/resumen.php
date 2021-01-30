@@ -4,6 +4,7 @@ class Resumen{
 
 	public function list($op,$m,$a){
 		require_once "conexion.php";
+		require_once "../control/method.php";
 		$con = new Conexion();
 		$mes = mysqli_escape_string($con->obtenerConexion(),$m);
 		$anio = mysqli_escape_string($con->obtenerConexion(),$a);
