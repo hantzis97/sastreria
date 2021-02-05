@@ -7,7 +7,6 @@ switch($a){
 		require_once "../modelo/producto.php";
 		$p = new Producto();
 		$r = $p->getCantidad();
-		//print_r($r);
 		echo json_encode($r);
 		break;
 	case 2:

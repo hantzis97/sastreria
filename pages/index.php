@@ -20,7 +20,8 @@ if ( isset($_SESSION["usuario"]) ){
 	          <div class="col-lg-6">
 	            <div class="card">
 	              <div class="card-header">
-	              	CANTIDAD DE PRODUCTOS
+	              	CANTIDAD DE PRODUCTOS &nbsp;
+	              	<a href="../control/getReporteProducto.php" class="btn btn-success" >REPORTE</a>
 	              </div>
 	              <div class="card-body">
 	              	<canvas id="producto" width="200" height="100">
@@ -33,7 +34,8 @@ if ( isset($_SESSION["usuario"]) ){
 	         <div class="col-lg-6">
 	            <div class="card">
 	              <div class="card-header">
-	              	MEDIDAS TOMADAS A LOS CLIENTES DESDE HACE 7 DIAS
+	              	MEDIDAS TOMADAS A LOS CLIENTES DESDE HACE 7 DIAS &nbsp;
+	              	<a href="../control/getReporteMedida.php" class="btn btn-success">REPORTE</a>
 	              </div>
 	              <div class="card-body">
 	              	<canvas id="medida" width="200" height="100">
