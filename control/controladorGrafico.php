@@ -15,6 +15,7 @@ switch($a){
 		$r = $m->getCantidad();
 		echo json_encode($r);
 		break;
+			
 }
 
 ?>

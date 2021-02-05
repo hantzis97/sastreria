@@ -15,11 +15,11 @@ class Resumen{
 			$fechaf = $anio."-01-31";
 		break;
 		case "Febrero":
-			$fechai = $anio."-o2-01";
-			$fechaf = $anio."-o2-28";
+			$fechai = $anio."-02-01";
+			$fechaf = $anio."-02-28";
 		break;
 		case "Marzo":
-			$fechai = $anio."-o3-01";
+			$fechai = $anio."-03-01";
 			$fechaf = $anio."-03-31";
 		break;
 		case "Abril":

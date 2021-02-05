@@ -23,8 +23,9 @@ class Control{
 		$sql = "SELECT idcontrol as id , prenda as title , inicio as start, fin as end , prenda as prenda ,color as textColor , fondo as backgroundColor , cantidad as estado FROM control WHERE idusuario = '$operario' ";
 		$stm = $con->query($sql);
 		$con->cerrarConexion();
+		$datos=array();
 		while($row = mysqli_fetch_array($stm)){
-		   $datos[] = $row;
+		   array_push($datos,$row);
 		}
 		return $datos; 
 	}
